@@ -1,0 +1,70 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <http://example.org/> .
+
+ex:KnowledgeGraph a rdfs:Class .
+ex:Publication a rdfs:Class .
+ex:Book a ex:Publication .
+ex:Paper a ex:Publication .
+ex:Technique a rdfs:Class .
+ex:Survey a ex:Publication .
+ex:Data a rdfs:Class .
+ex:Graph a rdfs:Class .
+ex:ApplicationScenario a rdfs:Class .
+ex:Domain a rdfs:Class .
+ex:KnowledgeRepresentation a rdfs:Class .
+ex:Ontology a ex:KnowledgeRepresentation .
+ex:Rule a ex:KnowledgeRepresentation .
+ex:GraphAnalytics a rdfs:Class .
+
+ex:developedBy a rdf:Property .
+ex:defines a rdf:Property .
+ex:outlines a rdf:Property .
+ex:represents a rdf:Property .
+ex:usedIn a rdf:Property .
+ex:captures a rdf:Property .
+ex:supports a rdf:Property .
+ex:employs a rdf:Property .
+ex:leverages a rdf:Property .
+ex:appliedTo a rdf:Property .
+ex:hasBenefit a rdf:Property .
+ex:isAlternativeTo a rdf:Property .
+
+ex:GoogleKnowledgeGraph a ex:KnowledgeGraph .
+ex:Airbnb a ex:KnowledgeGraph .
+ex:Amazon a ex:KnowledgeGraph .
+ex:eBay a ex:KnowledgeGraph .
+ex:Facebook a ex:KnowledgeGraph .
+ex:IBM a ex:KnowledgeGraph .
+ex:LinkedIn a ex:KnowledgeGraph .
+ex:Microsoft a ex:KnowledgeGraph .
+ex:Uber a ex:KnowledgeGraph .
+
+ex:Book defines ex:KnowledgeGraph .
+ex:Paper defines ex:KnowledgeGraph .
+ex:Technique defines ex:KnowledgeGraph .
+ex:Survey defines ex:KnowledgeGraph .
+
+ex:Graph represents ex:Data .
+ex:KnowledgeGraph represents ex:Data .
+
+ex:KnowledgeGraph usedIn ex:ApplicationScenario .
+
+ex:SocialData a ex:Domain .
+ex:BiologicalInteraction a ex:Domain .
+ex:BibliographicalCitation a ex:Domain .
+ex:CoAuthorship a ex:Domain .
+ex:TransportNetwork a ex:Domain .
+
+ex:Graph supports ex:MachineLearning .
+ex:Graph supports ex:GraphAnalytics .
+ex:KnowledgeRepresentation supports ex:Reasoning .
+
+ex:GraphAnalytics appliedTo ex:Domain .
+
+ex:Graph hasBenefit ex:Flexibility .
+ex:Graph hasBenefit ex:Conciseness .
+ex:Graph hasBenefit ex:Intuition .
+
+ex:RelationalModel isAlternativeTo ex:Graph .
+ex:NoSQL isAlternativeTo ex:Graph .

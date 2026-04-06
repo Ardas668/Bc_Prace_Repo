@@ -1,0 +1,80 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <http://example.org/kg#> .
+
+ex:KnowledgeGraph a rdfs:Class ;
+    rdfs:label "Knowledge Graph" .
+
+ex:IndustryEntity a rdfs:Class ;
+    rdfs:label "Industry Entity" .
+
+ex:ScientificLiterature a rdfs:Class ;
+    rdfs:label "Scientific Literature" .
+
+ex:Benefit a rdfs:Class ;
+    rdfs:label "Benefit" .
+
+ex:DataModel a rdfs:Class ;
+    rdfs:label "Data Model" .
+
+ex:stemsFrom a rdf:Property ;
+    rdfs:label "stems from" .
+
+ex:developedBy a rdf:Property ;
+    rdfs:label "developed by" .
+
+ex:publishedIn a rdf:Property ;
+    rdfs:label "published in" .
+
+ex:hasBenefit a rdf:Property ;
+    rdfs:label "has benefit" .
+
+ex:comparedWith a rdf:Property ;
+    rdfs:label "compared with" .
+
+ex:ModernIncarnation a ex:KnowledgeGraph ;
+    rdfs:label "Modern Incarnation" ;
+    ex:stemsFrom ex:GoogleKnowledgeGraphAnnouncement2012 .
+
+ex:GoogleKnowledgeGraphAnnouncement2012 a ex:Announcement ;
+    rdfs:label "2012 Google Knowledge Graph Announcement" .
+
+ex:Google ex:developedBy ex:KnowledgeGraph ; rdfs:label "Google" .
+ex:Airbnb ex:developedBy ex:KnowledgeGraph ; rdfs:label "Airbnb" .
+ex:Amazon ex:developedBy ex:KnowledgeGraph ; rdfs:label "Amazon" .
+ex:eBay ex:developedBy ex:KnowledgeGraph ; rdfs:label "eBay" .
+ex:Facebook ex:developedBy ex:KnowledgeGraph ; rdfs:label "Facebook" .
+ex:IBM ex:developedBy ex:KnowledgeGraph ; rdfs:label "IBM" .
+ex:LinkedIn ex:developedBy ex:KnowledgeGraph ; rdfs:label "LinkedIn" .
+ex:Microsoft ex:developedBy ex:KnowledgeGraph ; rdfs:label "Microsoft" .
+ex:Uber ex:developedBy ex:KnowledgeGraph ; rdfs:label "Uber" .
+
+ex:ScientificLiterature rdfs:label "Scientific Literature" ;
+    ex:includes ex:Books, ex:Papers .
+
+ex:GraphAbstraction a ex:DataModel ;
+    rdfs:label "Graph-based Abstraction" ;
+    ex:comparedWith ex:RelationalModel, ex:NoSQLAlternatives .
+
+ex:RelationalModel a ex:DataModel ;
+    rdfs:label "Relational Model" .
+
+ex:NoSQLAlternatives a ex:DataModel ;
+    rdfs:label "NoSQL Alternatives" .
+
+ex:ConciseAbstraction a ex:Benefit ;
+    rdfs:label "Concise and Intuitive Abstraction" .
+
+ex:FlexibleSchema a ex:Benefit ;
+    rdfs:label "Flexible Schema Evolution" .
+
+ex:NavigationalOperators a ex:Benefit ;
+    rdfs:label "Support for Navigational Operators" .
+
+ex:ReasoningCapability a ex:Benefit ;
+    rdfs:label "Reasoning about Semantics" .
+
+ex:KnowledgeGraph ex:hasBenefit ex:ConciseAbstraction, 
+    ex:FlexibleSchema, 
+    ex:NavigationalOperators, 
+    ex:ReasoningCapability .

@@ -1,0 +1,56 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix :     <http://example.org/> .
+
+:City a rdfs:Class ;
+    rdfs:label "Město" .
+
+:Region a rdfs:Class ;
+    rdfs:label "Kraj" .
+
+:River a rdfs:Class ;
+    rdfs:label "Řeka" .
+
+:University a rdfs:Class ;
+    rdfs:label "Univerzita" .
+
+:isCapitalOf a rdf:Property ;
+    rdfs:label "je hlavním městem" ;
+    rdfs:domain :City ;
+    rdfs:range  :Region .
+
+:flowsThrough a rdf:Property ;
+    rdfs:label "protéká" ;
+    rdfs:domain :River ;
+    rdfs:range  :City .
+
+:hasUniversity a rdf:Property ;
+    rdfs:label "má univerzitu" ;
+    rdfs:domain :City ;
+    rdfs:range  :University .
+
+:abbreviation a rdf:Property ;
+    rdfs:label "zkratka" ;
+    rdfs:domain :University ;
+    rdfs:range  xsd:string .
+
+:HradecKralove a :City ;
+    rdfs:label "Hradec Králové" ;
+    :isCapitalOf  :KralovehradeckyKraj ;
+    :hasUniversity :UHK .
+
+:KralovehradeckyKraj a :Region ;
+    rdfs:label "Královehradecký kraj" .
+
+:Orlice a :River ;
+    rdfs:label "Orlice" ;
+    :flowsThrough :HradecKralove .
+
+:Labe a :River ;
+    rdfs:label "Labe" ;
+    :flowsThrough :HradecKralove .
+
+:UHK a :University ;
+    rdfs:label "Univerzita Hradec Králové" ;
+    :abbreviation "UHK"^^xsd:string .

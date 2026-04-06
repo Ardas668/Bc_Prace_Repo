@@ -1,0 +1,73 @@
+http://example.org/KnowledgeGraph a rdfs:Class ; rdfs:label "KnowledgeGraph" .
+
+http://example.org/Organization a rdfs:Class ; rdfs:label "Organization" .
+
+http://example.org/Book a rdfs:Class ; rdfs:label "Book" ; rdfs:subClassOf http://example.org/Publication .
+
+http://example.org/Paper a rdfs:Class ; rdfs:label "Paper" ; rdfs:subClassOf http://example.org/Publication .
+
+http://example.org/Citation a rdfs:Class ; rdfs:label "Citation" .
+
+http://example.org/Graph a rdfs:Class ; rdfs:label "Graph" .
+
+http://example.org/developedBy a rdf:Property ; rdfs:label "developedBy" ; rdfs:domain http://example.org/KnowledgeGraph ; rdfs:range http://example.org/Organization .
+
+http://example.org/publishedIn a rdf:Property ; rdfs:label "publishedIn" ; rdfs:domain http://example.org/Publication ; rdfs:range http://example.org/Citation .
+
+http://example.org/mentions a rdf:Property ; rdfs:label "mentions" ; rdfs:domain http://example.org/Citation ; rdfs:range http://example.org/Publication .
+
+http://example.org/reprSentsData a rdf:Property ; rdfs:label "representsData" ; rdfs:domain http://example.org/KnowledgeGraph ; rdfs:range http://example.org/Graph .
+
+http://example.org/schemaFlexibility a rdf:Property ; rdfs:label "schemaFlexibility" ; rdfs:domain http://example.org/KnowledgeGraph ; rdfs:range rdfs:Literal .
+
+http://example.org/queryLanguageSupport a rdf:Property ; rdfs:label "queryLanguageSupport" ; rdfs:domain http://example.org/KnowledgeGraph ; rdfs:range rdfs:Literal .
+
+http://example.org/GoogleKnowledgeGraph a http://example.org/KnowledgeGraph ; rdfs:label "Google Knowledge Graph" .
+
+http://example.org/Google a http://example.org/Organization ; rdfs:label "Google" .
+
+http://example.org/Airbnb a http://example.org/Organization ; rdfs:label "Airbnb" .
+
+http://example.org/Amazon a http://example.org/Organization ; rdfs:label "Amazon" .
+
+http://example.org/eBay a http://example.org/Organization ; rdfs:label "eBay" .
+
+http://example.org/Facebook a http://example.org/Organization ; rdfs:label "Facebook" .
+
+http://example.org/IBM a http://example.org/Organization ; rdfs:label "IBM" .
+
+http://example.org/LinkedIn a http://example.org/Organization ; rdfs:label "LinkedIn" .
+
+http://example.org/Microsoft a http://example.org/Organization ; rdfs:label "Microsoft" .
+
+http://example.org/Uber a http://example.org/Organization ; rdfs:label "Uber" .
+
+http://example.org/Book425 a http://example.org/Book ; rdfs:label "Book [425]" .
+
+http://example.org/Citation425 a http://example.org/Citation ; rdfs:label "[425]" .
+
+http://example.org/Citation141 a http://example.org/Citation ; rdfs:label "[141]" .
+
+http://example.org/Paper318 a http://example.org/Paper ; rdfs:label "Paper [318]" .
+
+http://example.org/Paper424 a http://example.org/Paper ; rdfs:label "Paper [424]" .
+
+http://example.org/Paper553 a http://example.org/Paper ; rdfs:label "Paper [553]" .
+
+http://example.org/Paper400 a http://example.org/Paper ; rdfs:label "Paper [400]" .
+
+http://example.org/Paper549 a http://example.org/Paper ; rdfs:label "Paper [549]" .
+
+http://example.org/GoogleKnowledgeGraph http://example.org/developedBy http://example.org/Google .
+
+http://example.org/Book425 http://example.org/publishedIn http://example.org/Citation425 .
+
+http://example.org/Citation425 http://example.org/mentions http://example.org/Book425 .
+
+http://example.org/Citation141 http://example.org/mentions http://example.org/Paper318 .
+
+http://example.org/GoogleKnowledgeGraph http://example.org/reprSentsData http://example.org/Graph .
+
+http://example.org/GoogleKnowledgeGraph http://example.org/schemaFlexibility "maintainers can postpone schema definition" .
+
+http://example.org/GoogleKnowledgeGraph http://example.org/queryLanguageSupport "supports navigational operators for arbitrary-length paths" .

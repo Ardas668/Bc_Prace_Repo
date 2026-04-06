@@ -1,0 +1,43 @@
+@prefix ex: <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Mesto a rdfs:Class ;
+    rdfs:label "Město" .
+
+ex:Kraj a rdfs:Class ;
+    rdfs:label "Kraj" .
+
+ex:Reka a rdfs:Class ;
+    rdfs:label "Řeka" .
+
+ex:Univerzita a rdfs:Class ;
+    rdfs:label "Univerzita" .
+
+ex:jeHlavnimMestem a rdf:Property ;
+    rdfs:label "je hlavním městem" .
+
+ex:protekaSkrze a rdf:Property ;
+    rdfs:label "protéká" .
+
+ex:nachaziSeV a rdf:Property ;
+    rdfs:label "nachází se v" .
+
+ex:maZkratku a rdf:Property ;
+    rdfs:label "zkratka" .
+
+ex:HradecKralove a ex:Mesto ;
+    ex:jeHlavnimMestem ex:KralovehradeckyKraj .
+
+ex:KralovehradeckyKraj a ex:Kraj .
+
+ex:Orlice a ex:Reka ;
+    ex:protekaSkrze ex:HradecKralove .
+
+ex:Labe a ex:Reka ;
+    ex:protekaSkrze ex:HradecKralove .
+
+ex:UHK a ex:Univerzita ;
+    ex:nachaziSeV ex:HradecKralove ;
+    ex:maZkratku "UHK"^^xsd:string .

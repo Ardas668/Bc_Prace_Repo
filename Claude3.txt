@@ -1,0 +1,327 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix kg:   <http://example.org/kg#> .
+
+
+kg:KnowledgeGraph a rdfs:Class ;
+    rdfs:label "Knowledge Graph" .
+
+kg:Organization a rdfs:Class ;
+    rdfs:label "Organization" .
+
+kg:Company a rdfs:Class ;
+    rdfs:subClassOf kg:Organization ;
+    rdfs:label "Company" .
+
+kg:Academia a rdfs:Class ;
+    rdfs:subClassOf kg:Organization ;
+    rdfs:label "Academia" .
+
+kg:Publication a rdfs:Class ;
+    rdfs:label "Publication" .
+
+kg:Book a rdfs:Class ;
+    rdfs:subClassOf kg:Publication ;
+    rdfs:label "Book" .
+
+kg:Paper a rdfs:Class ;
+    rdfs:subClassOf kg:Publication ;
+    rdfs:label "Paper" .
+
+kg:DataModel a rdfs:Class ;
+    rdfs:label "Data Model" .
+
+kg:RelationalModel a rdfs:Class ;
+    rdfs:subClassOf kg:DataModel ;
+    rdfs:label "Relational Model" .
+
+kg:NoSQLModel a rdfs:Class ;
+    rdfs:subClassOf kg:DataModel ;
+    rdfs:label "NoSQL Model" .
+
+kg:GraphModel a rdfs:Class ;
+    rdfs:subClassOf kg:DataModel ;
+    rdfs:label "Graph Model" .
+
+kg:GraphQueryLanguage a rdfs:Class ;
+    rdfs:label "Graph Query Language" .
+
+kg:QueryOperator a rdfs:Class ;
+    rdfs:label "Query Operator" .
+
+kg:RelationalOperator a rdfs:Class ;
+    rdfs:subClassOf kg:QueryOperator ;
+    rdfs:label "Relational Operator" .
+
+kg:NavigationalOperator a rdfs:Class ;
+    rdfs:subClassOf kg:QueryOperator ;
+    rdfs:label "Navigational Operator" .
+
+kg:KnowledgeRepresentationFormalism a rdfs:Class ;
+    rdfs:label "Knowledge Representation Formalism" .
+
+kg:Ontology a rdfs:Class ;
+    rdfs:subClassOf kg:KnowledgeRepresentationFormalism ;
+    rdfs:label "Ontology" .
+
+kg:Rule a rdfs:Class ;
+    rdfs:subClassOf kg:KnowledgeRepresentationFormalism ;
+    rdfs:label "Rule" .
+
+kg:Domain a rdfs:Class ;
+    rdfs:label "Domain" .
+
+kg:ApplicationScenario a rdfs:Class ;
+    rdfs:label "Application Scenario" .
+
+kg:Benefit a rdfs:Class ;
+    rdfs:label "Benefit" .
+
+kg:AnalyticsTechnique a rdfs:Class ;
+    rdfs:label "Analytics Technique" .
+
+kg:MachineLearning a rdfs:Class ;
+    rdfs:label "Machine Learning" .
+
+
+kg:announcedBy a rdf:Property ;
+    rdfs:label "announced by" ;
+    rdfs:domain kg:KnowledgeGraph ;
+    rdfs:range kg:Organization .
+
+kg:announcedIn a rdf:Property ;
+    rdfs:label "announced in" ;
+    rdfs:domain kg:KnowledgeGraph ;
+    rdfs:range xsd:gYear .
+
+kg:develops a rdf:Property ;
+    rdfs:label "develops" ;
+    rdfs:domain kg:Organization ;
+    rdfs:range kg:KnowledgeGraph .
+
+kg:publishesOn a rdf:Property ;
+    rdfs:label "publishes on" ;
+    rdfs:domain kg:Publication ;
+    rdfs:range kg:KnowledgeGraph .
+
+kg:covers a rdf:Property ;
+    rdfs:label "covers" ;
+    rdfs:domain kg:Publication ;
+    rdfs:range kg:KnowledgeGraph .
+
+kg:usesModel a rdf:Property ;
+    rdfs:label "uses model" ;
+    rdfs:domain kg:KnowledgeGraph ;
+    rdfs:range kg:DataModel .
+
+kg:hasBenefit a rdf:Property ;
+    rdfs:label "has benefit" ;
+    rdfs:domain kg:KnowledgeGraph ;
+    rdfs:range kg:Benefit .
+
+kg:supportsScenario a rdf:Property ;
+    rdfs:label "supports scenario" ;
+    rdfs:domain kg:KnowledgeGraph ;
+    rdfs:range kg:ApplicationScenario .
+
+kg:usesFormalism a rdf:Property ;
+    rdfs:label "uses formalism" ;
+    rdfs:domain kg:KnowledgeGraph ;
+    rdfs:range kg:KnowledgeRepresentationFormalism .
+
+kg:queriedBy a rdf:Property ;
+    rdfs:label "queried by" ;
+    rdfs:domain kg:KnowledgeGraph ;
+    rdfs:range kg:GraphQueryLanguage .
+
+kg:supportsOperator a rdf:Property ;
+    rdfs:label "supports operator" ;
+    rdfs:domain kg:GraphQueryLanguage ;
+    rdfs:range kg:QueryOperator .
+
+kg:representsRelationsIn a rdf:Property ;
+    rdfs:label "represents relations in" ;
+    rdfs:domain kg:GraphModel ;
+    rdfs:range kg:Domain .
+
+kg:appliedTo a rdf:Property ;
+    rdfs:label "applied to" ;
+    rdfs:domain kg:AnalyticsTechnique ;
+    rdfs:range kg:KnowledgeGraph .
+
+kg:enablesTechnique a rdf:Property ;
+    rdfs:label "enables technique" ;
+    rdfs:domain kg:KnowledgeGraph ;
+    rdfs:range kg:MachineLearning .
+
+kg:phrasedSince a rdf:Property ;
+    rdfs:label "phrased since" ;
+    rdfs:domain kg:KnowledgeGraph ;
+    rdfs:range xsd:gYear .
+
+kg:comparedWith a rdf:Property ;
+    rdfs:label "compared with" ;
+    rdfs:domain kg:DataModel ;
+    rdfs:range kg:DataModel .
+
+
+kg:KnowledgeGraphConcept a kg:KnowledgeGraph ;
+    rdfs:label "Knowledge Graph Concept" ;
+    kg:phrasedSince "1972"^^xsd:gYear .
+
+kg:GoogleKnowledgeGraph a kg:KnowledgeGraph ;
+    rdfs:label "Google Knowledge Graph" ;
+    kg:announcedBy kg:Google ;
+    kg:announcedIn "2012"^^xsd:gYear ;
+    kg:usesModel kg:GraphModelInstance ;
+    kg:hasBenefit kg:ConciseAbstraction, kg:FlexibleSchema, kg:IncompleteKnowledgeCapture, kg:NavigationalQuerying, kg:SemanticReasoning, kg:GraphAnalyticsInsights, kg:MLSupport ;
+    kg:supportsScenario kg:DataIntegration, kg:DataManagement, kg:ValueExtraction ;
+    kg:usesFormalism kg:OntologyInstance, kg:RuleInstance ;
+    kg:queriedBy kg:GraphQueryLanguageInstance ;
+    kg:enablesTechnique kg:MachineLearningInstance .
+
+kg:Google a kg:Company ;
+    rdfs:label "Google" .
+
+kg:Airbnb a kg:Company ;
+    rdfs:label "Airbnb" .
+
+kg:Amazon a kg:Company ;
+    rdfs:label "Amazon" .
+
+kg:eBay a kg:Company ;
+    rdfs:label "eBay" .
+
+kg:Facebook a kg:Company ;
+    rdfs:label "Facebook" .
+
+kg:IBM a kg:Company ;
+    rdfs:label "IBM" .
+
+kg:LinkedIn a kg:Company ;
+    rdfs:label "LinkedIn" .
+
+kg:Microsoft a kg:Company ;
+    rdfs:label "Microsoft" .
+
+kg:Uber a kg:Company ;
+    rdfs:label "Uber" .
+
+kg:Airbnb kg:develops kg:GoogleKnowledgeGraph .
+kg:Amazon kg:develops kg:GoogleKnowledgeGraph .
+kg:eBay kg:develops kg:GoogleKnowledgeGraph .
+kg:Facebook kg:develops kg:GoogleKnowledgeGraph .
+kg:IBM kg:develops kg:GoogleKnowledgeGraph .
+kg:LinkedIn kg:develops kg:GoogleKnowledgeGraph .
+kg:Microsoft kg:develops kg:GoogleKnowledgeGraph .
+kg:Uber kg:develops kg:GoogleKnowledgeGraph .
+
+kg:AcademiaInstance a kg:Academia ;
+    rdfs:label "Academic Community" .
+
+kg:SurveyPaper a kg:Paper ;
+    rdfs:label "Survey Paper" ;
+    kg:covers kg:GoogleKnowledgeGraph .
+
+kg:TechniquePaper a kg:Paper ;
+    rdfs:label "Technique Paper" ;
+    kg:covers kg:GoogleKnowledgeGraph .
+
+kg:DefinitionPaper a kg:Paper ;
+    rdfs:label "Definition Paper" ;
+    kg:covers kg:GoogleKnowledgeGraph .
+
+kg:KGBook a kg:Book ;
+    rdfs:label "Knowledge Graph Book" ;
+    kg:covers kg:GoogleKnowledgeGraph .
+
+kg:GraphModelInstance a kg:GraphModel ;
+    rdfs:label "Graph-based Data Model" ;
+    kg:representsRelationsIn kg:SocialData, kg:BiologicalInteractions, kg:BibliographicalCitations, kg:TransportNetworks ;
+    kg:comparedWith kg:RelationalModelInstance, kg:NoSQLModelInstance .
+
+kg:RelationalModelInstance a kg:RelationalModel ;
+    rdfs:label "Relational Model" .
+
+kg:NoSQLModelInstance a kg:NoSQLModel ;
+    rdfs:label "NoSQL Model" .
+
+kg:GraphQueryLanguageInstance a kg:GraphQueryLanguage ;
+    rdfs:label "Graph Query Language" ;
+    kg:supportsOperator kg:JoinOp, kg:UnionOp, kg:ProjectionOp, kg:NavigationalOp .
+
+kg:JoinOp a kg:RelationalOperator ;
+    rdfs:label "Join" .
+
+kg:UnionOp a kg:RelationalOperator ;
+    rdfs:label "Union" .
+
+kg:ProjectionOp a kg:RelationalOperator ;
+    rdfs:label "Projection" .
+
+kg:NavigationalOp a kg:NavigationalOperator ;
+    rdfs:label "Navigational Path Operator" .
+
+kg:OntologyInstance a kg:Ontology ;
+    rdfs:label "Ontology" .
+
+kg:RuleInstance a kg:Rule ;
+    rdfs:label "Rule" .
+
+kg:SocialData a kg:Domain ;
+    rdfs:label "Social Data" .
+
+kg:BiologicalInteractions a kg:Domain ;
+    rdfs:label "Biological Interactions" .
+
+kg:BibliographicalCitations a kg:Domain ;
+    rdfs:label "Bibliographical Citations" .
+
+kg:TransportNetworks a kg:Domain ;
+    rdfs:label "Transport Networks" .
+
+kg:DataIntegration a kg:ApplicationScenario ;
+    rdfs:label "Data Integration" .
+
+kg:DataManagement a kg:ApplicationScenario ;
+    rdfs:label "Data Management" .
+
+kg:ValueExtraction a kg:ApplicationScenario ;
+    rdfs:label "Value Extraction" .
+
+kg:ConciseAbstraction a kg:Benefit ;
+    rdfs:label "Concise and Intuitive Abstraction" .
+
+kg:FlexibleSchema a kg:Benefit ;
+    rdfs:label "Flexible Schema Evolution" .
+
+kg:IncompleteKnowledgeCapture a kg:Benefit ;
+    rdfs:label "Incomplete Knowledge Capture" .
+
+kg:NavigationalQuerying a kg:Benefit ;
+    rdfs:label "Navigational Query Support" .
+
+kg:SemanticReasoning a kg:Benefit ;
+    rdfs:label "Semantic Reasoning" .
+
+kg:GraphAnalyticsInsights a kg:Benefit ;
+    rdfs:label "Graph Analytics Insights" .
+
+kg:MLSupport a kg:Benefit ;
+    rdfs:label "Machine Learning Support" .
+
+kg:Centrality a kg:AnalyticsTechnique ;
+    rdfs:label "Centrality" ;
+    kg:appliedTo kg:GoogleKnowledgeGraph .
+
+kg:Clustering a kg:AnalyticsTechnique ;
+    rdfs:label "Clustering" ;
+    kg:appliedTo kg:GoogleKnowledgeGraph .
+
+kg:Summarisation a kg:AnalyticsTechnique ;
+    rdfs:label "Summarisation" ;
+    kg:appliedTo kg:GoogleKnowledgeGraph .
+
+kg:MachineLearningInstance a kg:MachineLearning ;
+    rdfs:label "Machine Learning over Graphs" .

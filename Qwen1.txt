@@ -1,0 +1,31 @@
+@prefix : http://example.org/ . @prefix rdfs: http://www.w3.org/2000/01/rdf-schema# .
+
+:City a rdfs:Class; rdfs:label "City".
+
+:Region a rdfs:Class; rdfs:label "Region".
+
+:River a rdfs:Class; rdfs:label "River".
+
+:University a rdfs:Class; rdfs:label "University".
+
+:capital a rdf:Property; rdfs:label "capital"; rdfs:domain :Region; rdfs:range :City.
+
+:hasRiver a rdf:Property; rdfs:label "hasRiver"; rdfs:domain :City; rdfs:range :River.
+
+:hasUniversity a rdf:Property; rdfs:label "hasUniversity"; rdfs:domain :City; rdfs:range :University.
+
+:abbreviation a rdf:Property; rdfs:label "abbreviation"; rdfs:domain :University; rdfs:range rdfs:Literal.
+
+:HradecKralove a :City; rdfs:label "Hradec Králové".
+
+:KralovehradeckyKraj a :Region; rdfs:label "Královehradecký kraj"; :capital :HradecKralove.
+
+:Orlice a :River; rdfs:label "Orlice".
+
+:Labe a :River; rdfs:label "Labe".
+
+:HradecKralove :hasRiver :Orlice, :Labe.
+
+:UHK a :University; rdfs:label "UHK"; :abbreviation "UHK".
+
+:HradecKralove :hasUniversity :UHK.

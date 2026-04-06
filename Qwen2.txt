@@ -1,0 +1,41 @@
+@prefix rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# . @prefix rdfs: http://www.w3.org/2000/01/rdf-schema# . @prefix : http://example.org/ .
+
+:narrator a :Person .
+
+:UniversityOfLondon a :University ; rdfs:label "University of London" .
+
+:Netley a :Place ; rdfs:label "Netley" .
+
+:FifthNorthumberlandFusiliers a :MilitaryUnit ; rdfs:label "Fifth Northumberland Fusiliers" .
+
+:India a :Place ; rdfs:label "India" .
+
+:Candahar a :Place ; rdfs:label "Candahar" .
+
+:Berkshires a :MilitaryUnit ; rdfs:label "Berkshires" .
+
+:Maiwand a :Battle ; rdfs:label "Battle of Maiwand" .
+
+:Peshawar a :Place ; rdfs:label "Peshawar" .
+
+:PeshawarHospital a :Hospital ; rdfs:label "Peshawar Base Hospital" .
+
+:Orontes a :Ship ; rdfs:label "Orontes" .
+
+:Portsmouth a :Place ; rdfs:label "Portsmouth" .
+
+:London a :Place ; rdfs:label "London" .
+
+:Strand a :Place ; rdfs:label "Strand" .
+
+:CriterionBar a :Place ; rdfs:label "Criterion Bar" .
+
+:Barts a :Hospital ; rdfs:label "Bart's" .
+
+:Stamford a :Person ; rdfs:label "Stamford" .
+
+:Murray a :Person ; rdfs:label "Murray" .
+
+:Bombay a :Place ; rdfs:label "Bombay" .
+
+:narrator :hasDegree :UniversityOfLondon . :narrator :studiedAt :Netley . :narrator :attachedTo :FifthNorthumberlandFusiliers . :FifthNorthumberlandFusiliers :stationedIn :India . :narrator :livedIn :Bombay . :narrator :livedIn :Candahar . :narrator :attachedTo :Berkshires . :narrator :participatedIn :Maiwand . :narrator :injuredIn :Maiwand . :narrator :treatedAt :PeshawarHospital . :narrator :travelledOn :Orontes . :narrator :livedIn :Portsmouth . :narrator :livedIn :London . :narrator :livedIn :Strand . :narrator :workedAt :Barts . :Stamford :workedAt :Barts . :narrator :livedIn :CriterionBar 

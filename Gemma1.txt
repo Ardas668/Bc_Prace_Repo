@@ -1,0 +1,26 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <http://example.org/> .
+
+ex:HradecKralove rdf:type ex:City ;
+    ex:hasRegion ex:KralovehradeckyKraj ;
+    ex:hasRiver ex:Orlice , ex:Labe ;
+    ex:hasUniversity ex:UniverzitaHK .
+
+ex:KralovehradeckyKraj rdf:type ex:Region .
+
+ex:Orlice rdf:type ex:River .
+
+ex:Labe rdf:type ex:River .
+
+ex:UniverzitaHK rdf:type ex:University ;
+    ex:hasAbbreviation "UHK" .
+
+ex:City rdfs:label "City" .
+ex:Region rdfs:label "Region" .
+ex:River rdfs:label "River" .
+ex:University rdfs:label "University" .
+ex:hasRegion rdfs:label "hasRegion" .
+ex:hasRiver rdfs:label "hasRiver" .
+ex:hasUniversity rdfs:label "hasUniversity" .
+ex:hasAbbreviation rdfs:label "hasAbbreviation" .

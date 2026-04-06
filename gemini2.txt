@@ -1,0 +1,96 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <http://example.org/sherlock#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Person a rdfs:Class ; rdfs:label "Person" .
+ex:Location a rdfs:Class ; rdfs:label "Location" .
+ex:MilitaryUnit a rdfs:Class ; rdfs:label "Military Unit" .
+ex:Event a rdfs:Class ; rdfs:label "Event" .
+ex:Institution a rdfs:Class ; rdfs:label "Institution" .
+ex:Ship a rdfs:Class ; rdfs:label "Ship" .
+ex:Condition a rdfs:Class ; rdfs:label "Condition" .
+
+ex:attachedTo a rdf:Property ; rdfs:label "attached to" .
+ex:servedAt a rdf:Property ; rdfs:label "served at" .
+ex:locatedIn a rdf:Property ; rdfs:label "located in" .
+ex:graduatedFrom a rdf:Property ; rdfs:label "graduated from" .
+ex:woundedBy a rdf:Property ; rdfs:label "wounded by" .
+ex:savedBy a rdf:Property ; rdfs:label "saved by" .
+ex:sufferedFrom a rdf:Property ; rdfs:label "suffered from" .
+ex:traveledOn a rdf:Property ; rdfs:label "traveled on" .
+ex:acquaintedWith a rdf:Property ; rdfs:label "acquainted with" .
+
+ex:Narrator a ex:Person ;
+    rdfs:label "Narrator" ;
+    ex:graduatedFrom ex:UniversityOfLondon ;
+    ex:attachedTo ex:FifthNorthumberlandFusiliers , ex:Berkshires ;
+    ex:servedAt ex:BattleOfMaiwand ;
+    ex:woundedBy ex:JezailBullet ;
+    ex:savedBy ex:Murray ;
+    ex:sufferedFrom ex:EntericFever ;
+    ex:traveledOn ex:Orontes ;
+    ex:acquaintedWith ex:Stamford .
+
+ex:Stamford a ex:Person ;
+    rdfs:label "Stamford" .
+
+ex:Murray a ex:Person ;
+    rdfs:label "Murray" .
+
+ex:UniversityOfLondon a ex:Institution ;
+    rdfs:label "University of London" .
+
+ex:Netley a ex:Location ;
+    rdfs:label "Netley" .
+
+ex:FifthNorthumberlandFusiliers a ex:MilitaryUnit ;
+    rdfs:label "Fifth Northumberland Fusiliers" .
+
+ex:Berkshires a ex:MilitaryUnit ;
+    rdfs:label "Berkshires" .
+
+ex:India a ex:Location ;
+    rdfs:label "India" .
+
+ex:Bombay a ex:Location ;
+    rdfs:label "Bombay" .
+
+ex:Candahar a ex:Location ;
+    rdfs:label "Candahar" .
+
+ex:Peshawar a ex:Location ;
+    rdfs:label "Peshawar" .
+
+ex:SecondAfghanWar a ex:Event ;
+    rdfs:label "Second Afghan War" .
+
+ex:BattleOfMaiwand a ex:Event ;
+    rdfs:label "Battle of Maiwand" .
+
+ex:JezailBullet a Condition ;
+    rdfs:label "Jezail bullet" .
+
+ex:EntericFever a Condition ;
+    rdfs:label "Enteric fever" .
+
+ex:Orontes a ex:Ship ;
+    rdfs:label "Orontes" .
+
+ex:Portsmouth a ex:Location ;
+    rdfs:label "Portsmouth" .
+
+ex:London a ex:Location ;
+    rdfs:label "London" .
+
+ex:Strand a ex:Location ;
+    rdfs:label "The Strand" .
+
+ex:Barts a ex:Institution ;
+    rdfs:label "Bart's" .
+
+ex:CriterionBar a ex:Location ;
+    rdfs:label "Criterion Bar" .
+
+ex:Holborn a ex:Location ;
+    rdfs:label "The Holborn" .

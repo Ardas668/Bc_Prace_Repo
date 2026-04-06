@@ -1,0 +1,227 @@
+@prefix : <http://example.org/watson#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Person a rdfs:Class ;
+    rdfs:label "Person" .
+
+:MilitaryUnit a rdfs:Class ;
+    rdfs:label "Military unit" .
+
+:Location a rdfs:Class ;
+    rdfs:label "Location" .
+
+:War a rdfs:Class ;
+    rdfs:label "War" .
+
+:Battle a rdfs:Class ;
+    rdfs:label "Battle" .
+
+:Disease a rdfs:Class ;
+    rdfs:label "Disease" .
+
+:Hospital a rdfs:Class ;
+    rdfs:label "Hospital" .
+
+:EducationalInstitution a rdfs:Class ;
+    rdfs:label "Educational institution" .
+
+:Vessel a rdfs:Class ;
+    rdfs:label "Vessel" .
+
+:Weapon a rdfs:Class ;
+    rdfs:label "Weapon" .
+
+:Establishment a rdfs:Class ;
+    rdfs:label "Establishment" .
+
+:obtainedDegreeFrom a rdf:Property ;
+    rdfs:label "obtained degree from" ;
+    rdfs:domain :Person ;
+    rdfs:range :EducationalInstitution .
+
+:trainedAt a rdf:Property ;
+    rdfs:label "trained at" ;
+    rdfs:domain :Person ;
+    rdfs:range :Location .
+
+:attachedTo a rdf:Property ;
+    rdfs:label "attached to" ;
+    rdfs:domain :Person ;
+    rdfs:range :MilitaryUnit .
+
+:stationedIn a rdf:Property ;
+    rdfs:label "stationed in" ;
+    rdfs:domain :MilitaryUnit ;
+    rdfs:range :Location .
+
+:participatedIn a rdf:Property ;
+    rdfs:label "participated in" ;
+    rdfs:domain :Person ;
+    rdfs:range :Battle .
+
+:woundedBy a rdf:Property ;
+    rdfs:label "wounded by" ;
+    rdfs:domain :Person ;
+    rdfs:range :Weapon .
+
+:savedBy a rdf:Property ;
+    rdfs:label "saved by" ;
+    rdfs:domain :Person ;
+    rdfs:range :Person .
+
+:isOrdinaryOf a rdf:Property ;
+    rdfs:label "is orderly of" ;
+    rdfs:domain :Person ;
+    rdfs:range :Person .
+
+:treatedAt a rdf:Property ;
+    rdfs:label "treated at" ;
+    rdfs:domain :Person ;
+    rdfs:range :Hospital .
+
+:afflictedBy a rdf:Property ;
+    rdfs:label "afflicted by" ;
+    rdfs:domain :Person ;
+    rdfs:range :Disease .
+
+:traveledOn a rdf:Property ;
+    rdfs:label "traveled on" ;
+    rdfs:domain :Person ;
+    rdfs:range :Vessel .
+
+:landedAt a rdf:Property ;
+    rdfs:label "landed at" ;
+    rdfs:domain :Person ;
+    rdfs:range :Location .
+
+:visitedEstablishment a rdf:Property ;
+    rdfs:label "visited establishment" ;
+    rdfs:domain :Person ;
+    rdfs:range :Establishment .
+
+:metPerson a rdf:Property ;
+    rdfs:label "met person" ;
+    rdfs:domain :Person ;
+    rdfs:range :Person .
+
+:workedUnder a rdf:Property ;
+    rdfs:label "worked under" ;
+    rdfs:domain :Person ;
+    rdfs:range :Person .
+
+:locatedIn a rdf:Property ;
+    rdfs:label "located in" ;
+    rdfs:domain :Location ;
+    rdfs:range :Location .
+
+:partOfWar a rdf:Property ;
+    rdfs:label "part of war" ;
+    rdfs:domain :Battle ;
+    rdfs:range :War .
+
+:hasRank a rdf:Property ;
+    rdfs:label "has rank" ;
+    rdfs:domain :Person .
+
+:inYear a rdf:Property ;
+    rdfs:label "in year" ;
+    rdfs:domain :Person .
+
+:Watson a :Person ;
+    rdfs:label "Dr. Watson" ;
+    :obtainedDegreeFrom :UniversityOfLondon ;
+    :trainedAt :Netley ;
+    :attachedTo :FifthNorthumberlandFusiliers ;
+    :attachedTo :Berkshires ;
+    :participatedIn :BattleOfMaiwand ;
+    :woundedBy :JezailBullet ;
+    :savedBy :Murray ;
+    :treatedAt :PeshawarHospital ;
+    :afflictedBy :EntericFever ;
+    :traveledOn :Orontes ;
+    :landedAt :Portsmouth ;
+    :landedAt :Bombay ;
+    :visitedEstablishment :CriterionBar ;
+    :visitedEstablishment :Holborn ;
+    :metPerson :Stamford ;
+    :hasRank "Assistant Surgeon" ;
+    :inYear "1878"^^xsd:gYear .
+
+:Murray a :Person ;
+    rdfs:label "Murray" ;
+    :isOrdinaryOf :Watson .
+
+:Stamford a :Person ;
+    rdfs:label "Stamford" ;
+    :workedUnder :Watson .
+
+:UniversityOfLondon a :EducationalInstitution ;
+    rdfs:label "University of London" .
+
+:Barts a :EducationalInstitution ;
+    rdfs:label "Bart's" ;
+    :locatedIn :London .
+
+:Netley a :Location ;
+    rdfs:label "Netley" .
+
+:India a :Location ;
+    rdfs:label "India" .
+
+:Bombay a :Location ;
+    rdfs:label "Bombay" ;
+    :locatedIn :India .
+
+:Candahar a :Location ;
+    rdfs:label "Candahar" .
+
+:Peshawar a :Location ;
+    rdfs:label "Peshawar" ;
+    :locatedIn :India .
+
+:London a :Location ;
+    rdfs:label "London" .
+
+:Portsmouth a :Location ;
+    rdfs:label "Portsmouth" .
+
+:Strand a :Location ;
+    rdfs:label "The Strand" ;
+    :locatedIn :London .
+
+:FifthNorthumberlandFusiliers a :MilitaryUnit ;
+    rdfs:label "Fifth Northumberland Fusiliers" ;
+    :stationedIn :India .
+
+:Berkshires a :MilitaryUnit ;
+    rdfs:label "Berkshires" .
+
+:SecondAfghanWar a :War ;
+    rdfs:label "Second Afghan War" .
+
+:BattleOfMaiwand a :Battle ;
+    rdfs:label "Battle of Maiwand" ;
+    :partOfWar :SecondAfghanWar .
+
+:JezailBullet a :Weapon ;
+    rdfs:label "Jezail bullet" .
+
+:EntericFever a :Disease ;
+    rdfs:label "Enteric fever" .
+
+:PeshawarHospital a :Hospital ;
+    rdfs:label "Base hospital Peshawar" ;
+    :locatedIn :Peshawar .
+
+:Orontes a :Vessel ;
+    rdfs:label "Troopship Orontes" .
+
+:CriterionBar a :Establishment ;
+    rdfs:label "Criterion Bar" ;
+    :locatedIn :London .
+
+:Holborn a :Establishment ;
+    rdfs:label "Holborn" ;
+    :locatedIn :London .
